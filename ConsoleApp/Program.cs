@@ -36,42 +36,44 @@ while (true)
 
     switch (option)
     {
-        case "1":
-            foreach (Pet pet in pets)
-                Display(pet);
+        case "1":           
+            DisplayPets(pets);
             break;
+
         case "2":
-            foreach (Pet pet in pets)
-                if (pet.AgeInMonths < 6)
-                    Display(pet);
+            var pups = pets.Where(pet => pet.AgeInMonths < 6).ToList();
+            DisplayPets(pups);
             break;
+
         case "3":
-            foreach (Pet pet in pets)
-                if (pet.IsVaccinated)
-                    Display(pet);
+            var vaccinatedPets = pets.Where(pet => pet.IsVaccinated).ToList();
+            DisplayPets(vaccinatedPets);
             break;
+
         case "4":
             Console.Write("Enter the ID of the pet to vaccinate: ");
             int id = int.Parse(Console.ReadLine());
-            foreach (Pet pet in pets)
-                if (pet.Id == id)
-                    pet.IsVaccinated = true;
+            
+            var petToVaccinate = pets.Single(pet => pet.Id == id);
+            petToVaccinate.IsVaccinated = true;
+            
+            DisplayPets(pets);
+            
             break;
+
         case "5":
             return;
+
         default:
             Console.WriteLine("Invalid option. Please try again.");
             break;
     }
 }
 
-
-void Display(Pet pet)
+void DisplayPets(List<Pet> pets)
 {
-    Console.WriteLine($"Id: {pet.Id}");
-    Console.WriteLine($"Name: {pet.Name}");
-    Console.WriteLine($"City: {pet.City}");
-    Console.WriteLine($"Is Vaccinated: {pet.IsVaccinated}");
-    Console.WriteLine($"{pet.AgeInMonths} months old");
-    Console.WriteLine();
+    Console.WriteLine($"{"Id",-8}{"Name",-16}{"City",-16}{"Is Vaccinated",-16}{"Age in months",-16}");
+    foreach (Pet pet in pets)
+        Console.WriteLine($"{pet.Id,-8}{pet.Name,-16}{pet.City,-16}{pet.IsVaccinated,-16}{pet.AgeInMonths} months");
 }
+
