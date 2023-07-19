@@ -23,6 +23,8 @@ List<Pet> pets = new List<Pet>
 
 while (true)
 {
+    Console.WriteLine();
+
     Console.WriteLine("******************** Welcome to the pet store ***************");
     Console.WriteLine("1. Display all pets");
     Console.WriteLine("2. Display pups only");
@@ -33,6 +35,8 @@ while (true)
     Console.Write("Choose your option: ");
 
     string option = Console.ReadLine();
+
+    Console.Clear();
 
     switch (option)
     {
@@ -52,12 +56,24 @@ while (true)
 
         case "4":
             Console.Write("Enter the ID of the pet to vaccinate: ");
-            int id = int.Parse(Console.ReadLine());
-            
-            var petToVaccinate = pets.Single(pet => pet.Id == id);
-            petToVaccinate.IsVaccinated = true;
-            
-            DisplayPets(pets);
+
+            try
+            {
+                int id = int.Parse(Console.ReadLine());
+
+                var petToVaccinate = pets.Find(pet => pet.Id == id);
+
+                if (petToVaccinate is not null)
+                    petToVaccinate.IsVaccinated = true;
+                else
+                    Console.WriteLine("Pet not found!");
+
+                DisplayPets(pets);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             
             break;
 
@@ -72,8 +88,12 @@ while (true)
 
 void DisplayPets(List<Pet> pets)
 {
+    Console.WriteLine();
+
     Console.WriteLine($"{"Id",-8}{"Name",-16}{"City",-16}{"Is Vaccinated",-16}{"Age in months",-16}");
+    
     foreach (Pet pet in pets)
-        Console.WriteLine($"{pet.Id,-8}{pet.Name,-16}{pet.City,-16}{pet.IsVaccinated,-16}{pet.AgeInMonths} months");
+        Console.WriteLine($"{pet.Id,-8}{pet.Name,-16}{pet.City,-16}" +
+            $"{pet.IsVaccinated,-16}{pet.AgeInMonths} months");
 }
 
