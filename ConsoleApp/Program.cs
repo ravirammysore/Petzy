@@ -1,23 +1,23 @@
 ﻿// Create a list and add the pets to it
 List<Pet> pets = new List<Pet>
 {
-    new Pet { Id = 1, Name = "Fluffy", City = "San Francisco", 
-        IsVaccinated = true, AgeInMonths = 4 },
+    new Pet { Id = 1, Name = "Fluffy", City  = "San Francisco", 
+        IsVaccinated = true, AgeInMonths = 4, PetType = PetType.Dog },
 
     new Pet { Id = 2, Name = "Bella", City = "San Francisco", 
-        IsVaccinated = true, AgeInMonths = 6 },
+        IsVaccinated = true, AgeInMonths = 6,  PetType = PetType.Dog },
 
     new Pet { Id = 3, Name = "Spot", City = "Chicago", 
-        IsVaccinated = false, AgeInMonths = 12 },
+        IsVaccinated = false, AgeInMonths = 12,  PetType = PetType.Cat },
 
     new Pet { Id = 4, Name = "Max", City = "Chicago", 
-        IsVaccinated = false, AgeInMonths = 6 },
+        IsVaccinated = false, AgeInMonths = 6 , PetType = PetType.Dog},
 
     new Pet { Id = 5, Name = "Charlie", City = "Chicago", 
-        IsVaccinated = true, AgeInMonths = 7 },
+        IsVaccinated = true, AgeInMonths = 7,  PetType = PetType.Dog },
 
     new Pet { Id = 6, Name = "Daisy", City = "San Francisco", 
-        IsVaccinated = false, AgeInMonths = 11 }
+        IsVaccinated = false, AgeInMonths = 11,  PetType = PetType.Cat }
 };
 
 
@@ -90,10 +90,11 @@ void DisplayPets(List<Pet> pets)
 {
     Console.WriteLine();
 
-    Console.WriteLine($"{"Id",-8}{"Name",-16}{"City",-16}{"Is Vaccinated",-16}{"Age in months",-16}");
-    
+    Console.WriteLine($"{"Id",-8}{"Name",-16}{"City",-16}{"Is Vaccinated",-16}{"Age in months",-16}{"Type",-16}");
+
     foreach (Pet pet in pets)
         Console.WriteLine($"{pet.Id,-8}{pet.Name,-16}{pet.City,-16}" +
-            $"{pet.IsVaccinated,-16}{pet.AgeInMonths} months");
+            $"{pet.IsVaccinated,-16}{pet.AgeInMonths + " months",-16}{pet.PetType.ToString(),-8}");
 }
+
 
