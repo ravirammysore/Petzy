@@ -7,12 +7,46 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: separate;
+            border-spacing: 0 1em;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <div>
         <h1>Welcome to the Pets index page!</h1>
-        <p>Our first pet is: @Model.FirstPetName and he is cute!</p>
-        <p>Our second pet is: @Model.SecondPetName and she is smart!</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Is Vaccinated</th>
+                    <th>Age in months</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pet in Model.Pets)
+                {
+                    <tr>
+                        <td>@pet.Id</td>
+                        <td>@pet.Name</td>
+                        <td>@pet.City</td>
+                        <td>@pet.IsVaccinated</td>
+                        <td>@pet.AgeInMonths</td>
+                        <td>@pet.PetType</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
