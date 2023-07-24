@@ -1,0 +1,36 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model WebApp.Pages.Pets.CreateModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a new pet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>    
+   <div class="container">
+        <h2 class="my-4">Create a new pet</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
+                    <div class="form-group">
+                        <label asp-for="Pet.Name"></label>
+                        <input asp-for="Pet.Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Pet.City"></label>
+                        <input asp-for="Pet.City" class="form-control" />
+                    </div>                    
+                    <div class="form-group">
+                        <label asp-for="Pet.AgeInMonths"></label>
+                        <input asp-for="Pet.AgeInMonths" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </form>
+            </div>
+        </div>
+   </div>
+</body>
+</html>
