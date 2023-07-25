@@ -15,23 +15,23 @@ namespace WebApp.Pages.Pets
 
         public IActionResult OnGet()
         {
-            var petTypeValues = Enum.GetValues(typeof(PetType)).Cast<PetType>();
-
-            DropDownItems = petTypeValues.Select(pt => new SelectListItem
+            // Create a new list with hardcoded SelectListItem objects
+            DropDownItems = new List<SelectListItem>
             {
-                Value = ((int)pt).ToString(),
-                Text = pt.ToString()
-            }).ToList();
+                new SelectListItem { Value = "0", Text = "Dog" },
+                new SelectListItem { Value = "1", Text = "Cat" }
+            };
 
             return Page();
         }
+
         public void OnPost()
         {
             //save it to our pet list later
             Debug.WriteLine(Pet.Name);
             Debug.WriteLine(Pet.City);
             Debug.WriteLine(Pet.AgeInMonths);
-            
+
             Debug.WriteLine(Pet.IsVaccinated);
             Debug.WriteLine(Pet.PetType);
         }
