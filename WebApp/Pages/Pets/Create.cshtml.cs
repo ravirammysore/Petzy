@@ -14,6 +14,13 @@ namespace WebApp.Pages.Pets
         public List<SelectListItem> DropDownItems { get; set; }
 
         public IActionResult OnGet()
+        {            
+            PopulateDropdown();
+
+            return Page();
+        }
+
+        private void PopulateDropdown()
         {
             // Create a new list with hardcoded SelectListItem objects
             DropDownItems = new List<SelectListItem>
@@ -21,19 +28,18 @@ namespace WebApp.Pages.Pets
                 new SelectListItem { Value = "0", Text = "Dog" },
                 new SelectListItem { Value = "1", Text = "Cat" }
             };
-
-            return Page();
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            //save it to our pet list later
-            Debug.WriteLine(Pet.Name);
-            Debug.WriteLine(Pet.City);
-            Debug.WriteLine(Pet.AgeInMonths);
+            if(ModelState.IsValid is false)
+            {
+                PopulateDropdown();
 
-            Debug.WriteLine(Pet.IsVaccinated);
-            Debug.WriteLine(Pet.PetType);
+                return Page();
+            }
+            //save it to our pet list later
+            return RedirectToPage("./Index");
         }
     }
 }
