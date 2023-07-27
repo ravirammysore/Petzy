@@ -1,55 +1,36 @@
 ﻿@page
 @model WebApp.Pages.Pets.IndexModel
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<!DOCTYPE html>
+<div class="container">  
+    <h1 class="my-3">Welcome to Petzy!</h1>
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
 
-<html>
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Is Vaccinated</th>
+                <th>Age in months</th>
+                <th>Type</th>
+            </tr>
+        </thead>
 
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-
-<body>
-    <div class="container">
-        
-        <h1 class="my-3">Welcome to Petzy!</h1>
-        <p>
-            <a asp-page="Create">Create New</a>
-        </p>
-
-        <table class="table table-striped">
-            <thead class = "thead-light">
+        <tbody>
+            @foreach (var pet in Model.Pets)
+            {
                 <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>City</th>
-                    <th>Is Vaccinated</th>
-                    <th>Age in months</th>
-                    <th>Type</th>
+                    <td>@pet.Id</td>
+                    <td>@pet.Name</td>
+                    <td>@pet.City</td>
+                    <td>@pet.IsVaccinated</td>
+                    <td>@pet.AgeInMonths</td>
+                    <td>@pet.PetType</td>
                 </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var pet in Model.Pets)
-                {
-                    <tr>
-                        <td>@pet.Id</td>
-                        <td>@pet.Name</td>
-                        <td>@pet.City</td>
-                        <td>@pet.IsVaccinated</td>
-                        <td>@pet.AgeInMonths</td>
-                        <td>@pet.PetType</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+            }
+        </tbody>
+    </table>
+</div>

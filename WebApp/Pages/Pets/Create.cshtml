@@ -1,62 +1,43 @@
 ﻿@page
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
 @model WebApp.Pages.Pets.CreateModel
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create a new pet</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <h2 class="my-4">Create a new pet</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <form method="post">
+<div class="container">
+    <h2 class="my-4">Create a new pet</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
 
-                    <div class="form-group">
-                        <label asp-for="Pet.Name"></label>
-                        <input asp-for="Pet.Name" class="form-control" />
-                        <span asp-validation-for="Pet.Name" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Pet.City"></label>
-                        <input asp-for="Pet.City" class="form-control" />
-                        <span asp-validation-for="Pet.City" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Pet.AgeInMonths"></label>
-                        <input asp-for="Pet.AgeInMonths" class="form-control" />
-                        <span asp-validation-for="Pet.AgeInMonths" class="text-danger"></span>
-                    </div>
-                    <div class="form-group form-check">
-                        <input asp-for="Pet.IsVaccinated" class="form-check-input" />
-                        <label asp-for="Pet.IsVaccinated"> </label>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Pet.PetType"></label>
-                        <select asp-for="Pet.PetType" asp-items="Model.DropDownItems" class="form-control"></select>
+                <div class="form-group">
+                    <label asp-for="Pet.Name"></label>
+                    <input asp-for="Pet.Name" class="form-control" />
+                    <span asp-validation-for="Pet.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Pet.City"></label>
+                    <input asp-for="Pet.City" class="form-control" />
+                    <span asp-validation-for="Pet.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Pet.AgeInMonths"></label>
+                    <input asp-for="Pet.AgeInMonths" class="form-control" />
+                    <span asp-validation-for="Pet.AgeInMonths" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <input asp-for="Pet.IsVaccinated" class="form-check-input" />
+                    <label asp-for="Pet.IsVaccinated"> </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Pet.PetType"></label>
+                    <select asp-for="Pet.PetType" asp-items="Model.DropDownItems" class="form-control"></select>
 
-                    </div>
-                    <button type="submit" class="btn btn-primary">Create</button>
-                </form>
-            </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
         </div>
-
-        <div>
-            <a asp-page="Index">Back to List</a>
-        </div>
-
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
 
-</body>
-</html>
+</div>
