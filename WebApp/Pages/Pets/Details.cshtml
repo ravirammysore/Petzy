@@ -1,0 +1,51 @@
+﻿@page
+@model WebApp.Pages.Pets.DetailsModel
+@{
+}
+
+<div class="container">
+
+    <h1>Details</h1>
+
+    <h4>About @Model.Pet.Name</h4>
+
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.Name
+        </dd>
+
+        <dt class="col-sm-2">
+            City
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.City
+        </dd>
+
+        <dt class="col-sm-2">
+            IsVaccinated
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.IsVaccinated
+        </dd>
+
+        <dt class="col-sm-2">
+            AgeInMonths
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.AgeInMonths
+        </dd>
+
+        <dt class="col-sm-2">
+            PetType
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.PetType
+        </dd>
+
+    </dl>
+</div>

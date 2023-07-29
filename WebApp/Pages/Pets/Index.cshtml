@@ -16,6 +16,7 @@
                 <th>Is Vaccinated</th>
                 <th>Age in months</th>
                 <th>Type</th>
+                <th></th>
             </tr>
         </thead>
 
@@ -29,6 +30,9 @@
                     <td>@pet.IsVaccinated</td>
                     <td>@pet.AgeInMonths</td>
                     <td>@pet.PetType</td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@pet.Id">Details</a>
+                    </td>
                 </tr>
             }
         </tbody>

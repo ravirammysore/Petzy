@@ -39,7 +39,10 @@ namespace WebApp.Pages.Pets
 
                 return Page();
             }
+
+            var nextId = InMemoryDatabase.Pets.Max(p => p.Id) + 1;
             
+            Pet.Id = nextId;                
             InMemoryDatabase.Pets.Add(Pet);
 
             return RedirectToPage("./Index");
