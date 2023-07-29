@@ -40,7 +40,9 @@ namespace WebApp.Pages.Pets
                 return Page();
             }
 
-            var nextId = InMemoryDatabase.Pets.Max(p => p.Id) + 1;
+            int nextId = 1;
+            if (InMemoryDatabase.Pets.Any())
+                nextId = InMemoryDatabase.Pets.Max(p => p.Id) + 1;
             
             Pet.Id = nextId;                
             InMemoryDatabase.Pets.Add(Pet);

@@ -1,0 +1,53 @@
+﻿@page
+@model WebApp.Pages.Pets.DeleteModel
+
+<div class="container">
+
+    <h1>Delete</h1>
+
+    <h4>Do you want to delete @Model.Pet.Name details? </h4>
+
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.Name
+        </dd>
+
+        <dt class="col-sm-2">
+            City
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.City
+        </dd>
+
+        <dt class="col-sm-2">
+            IsVaccinated
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.IsVaccinated
+        </dd>
+
+        <dt class="col-sm-2">
+            AgeInMonths
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.AgeInMonths
+        </dd>
+
+        <dt class="col-sm-2">
+            PetType
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pet.PetType
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Pet.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />   
+    </form>
+</div>
