@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
+using WebApp.Data;
 using WebApp.Models;
 
 namespace WebApp.Pages.Pets
@@ -38,7 +39,9 @@ namespace WebApp.Pages.Pets
 
                 return Page();
             }
-            //save it to our pet list later
+            
+            InMemoryDatabase.Pets.Add(Pet);
+
             return RedirectToPage("./Index");
         }
     }
