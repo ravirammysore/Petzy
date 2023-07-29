@@ -10,7 +10,7 @@ namespace WebApp.Pages.Pets
        
         public Pet Pet { get; set; }
 
-        public IActionResult OnGet(int? id)
+        public IActionResult OnGet(int id)
         {            
             var pet = InMemoryDatabase.Pets.FirstOrDefault(p => p.Id == id);
             if (pet == null)
