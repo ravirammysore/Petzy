@@ -21,6 +21,7 @@ namespace WebApp.Models
         [Required]
         [Range(1, 100, ErrorMessage = "Age must be between 1 and 100 months.")]
         [Display(Name = "Age (Months)")]
+        [DisplayFormat(DataFormatString = "{0:D2}")]
         public int AgeInMonths { get; set; }
 
         [Display(Name = "Type of Pet")]
