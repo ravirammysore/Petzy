@@ -6,13 +6,18 @@ using WebApp.Models;
 namespace WebApp.Pages.Pets
 {
     public class DetailsModel : PageModel
-    {        
-       
-        public Pet Pet { get; set; }
+    {                       
+        private readonly DataContext _context;
+        public DetailsModel(DataContext context)
+        {
+            _context = context;
+        }
 
+        public Pet Pet { get; set; }
         public IActionResult OnGet(int id)
         {            
-            var pet = InMemoryDatabase.Pets.FirstOrDefault(p => p.Id == id);
+            var pet = _context.Pets.FirstOrDefault(p => p.Id == id);
+            
             if (pet == null)
             {
                 return NotFound();
