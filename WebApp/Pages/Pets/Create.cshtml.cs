@@ -8,10 +8,12 @@ using WebApp.Models;
 namespace WebApp.Pages.Pets
 {
     public class CreateModel : PageModel
-    {
-        [BindProperty]
-        public Pet Pet { get; set; }
-
+    {       
+        private readonly DataContext _context;
+        public CreateModel(DataContext context)
+        {
+            _context = context;
+        }
         public List<SelectListItem> DropDownItems { get; set; }
 
         public IActionResult OnGet()
@@ -31,22 +33,17 @@ namespace WebApp.Pages.Pets
             };
         }
 
+        [BindProperty]
+        public Pet Pet { get; set; }
         public IActionResult OnPost()
         {
-            if(ModelState.IsValid is false)
+            if (!ModelState.IsValid)
             {
-                PopulateDropdown();
-
                 return Page();
             }
 
-            int nextId = 1;
-            if (InMemoryDatabase.Pets.Any())
-                nextId = InMemoryDatabase.Pets.Max(p => p.Id) + 1;
-            
-            Pet.Id = nextId;                
-            InMemoryDatabase.Pets.Add(Pet);
-
+            _context.Pets.Add(Pet);
+            _context.SaveChanges();
             return RedirectToPage("./Index");
         }
     }
