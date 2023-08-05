@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
 using WebApp.Models;
 
@@ -8,10 +9,16 @@ namespace WebApp.Pages.Pets
     public class DeleteModel : PageModel
     {
         public Pet Pet { get; set; }
+        
+        private readonly DataContext _context;
+        public DeleteModel(DataContext context)
+        {
+            _context = context;
+        }
 
         public IActionResult OnGet(int id)
         {
-            var pet = InMemoryDatabase.Pets.FirstOrDefault(p => p.Id == id);
+            var pet = _context.Pets.FirstOrDefault(m => m.Id == id);
 
             if (pet == null)
             {
@@ -26,18 +33,16 @@ namespace WebApp.Pages.Pets
 
         public IActionResult OnPost(int id)
         {
-            var pet = InMemoryDatabase.Pets.FirstOrDefault(p => p.Id == id);
+            var pet = _context.Pets.Find(id);
 
-            if (pet == null)
+            if (pet is not null)
             {
-                return NotFound();
+                Pet = pet;
+                _context.Pets.Remove(pet);
+                _context.SaveChanges();
             }
-            else
-            {
-                InMemoryDatabase.Pets.Remove(pet);
-            }
+
             return RedirectToPage("./Index");
         }
     }
-
 }
