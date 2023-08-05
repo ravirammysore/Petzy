@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
 using WebApp.Models;
 
@@ -8,14 +9,19 @@ namespace WebApp.Pages.Pets
 {
     public class EditModel : PageModel
     {
-        [BindProperty]
-        public Pet Pet { get; set; }
+        private readonly DataContext _context;
+        public EditModel(DataContext context)
+        {
+            _context = context;
+        }        
 
         public List<SelectListItem> DropDownItems { get; set; }
 
+        [BindProperty]
+        public Pet Pet { get; set; }
         public IActionResult OnGet(int id)
         {
-            var petInDb = InMemoryDatabase.Pets.Find(p=> p.Id == id);
+            var petInDb = _context.Pets.FirstOrDefault(p => p.Id == id);
 
             if (petInDb == null)
             {
@@ -47,18 +53,29 @@ namespace WebApp.Pages.Pets
                 return Page();
             }
 
-            var petInDb = InMemoryDatabase.Pets.Find(p=>p.Id == Pet.Id);
-            if (petInDb == null)
-                return NotFound();
+            _context.Attach(Pet).State = EntityState.Modified;
 
-            petInDb.Id = Pet.Id;
-            petInDb.Name = Pet.Name;
-            petInDb.City = Pet.City;
-            petInDb.AgeInMonths = Pet.AgeInMonths;
-            petInDb.IsVaccinated = Pet.IsVaccinated;
-            petInDb.PetType = Pet.PetType;
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PetExists(Pet.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return RedirectToPage("./Index");
+        }
+        private bool PetExists(int id)
+        {
+            return (_context.Pets?.Any(p => p.Id == id)).GetValueOrDefault();
         }
     }
 }
