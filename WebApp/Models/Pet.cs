@@ -26,6 +26,9 @@ namespace WebApp.Models
 
         [Display(Name = "Type of Pet")]
         public PetType PetType { get; set; }
+        public int? BreedID { get; set; }
+        
+        public Breed Breed;
     }
 
 
