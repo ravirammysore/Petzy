@@ -10,5 +10,6 @@ namespace WebApp.Data
         }
 
         public DbSet<Pet> Pets { get; set; }
+        public DbSet<Breed> Breeds { get; set; }
     }
 }
