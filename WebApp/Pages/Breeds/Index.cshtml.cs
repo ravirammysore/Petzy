@@ -19,13 +19,13 @@ namespace WebApp.Pages.Breeds
             _context = context;
         }
 
-        public IList<Breed> Breed { get;set; } = default!;
+        public IList<Breed> Breeds { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
             if (_context.Breeds != null)
             {
-                Breed = await _context.Breeds.ToListAsync();
+                Breeds = await _context.Breeds.ToListAsync();
             }
         }
     }

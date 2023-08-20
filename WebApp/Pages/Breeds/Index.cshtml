@@ -14,22 +14,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Breed[0].Name)
+                @Html.DisplayNameFor(model => model.Breeds[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Breed[0].Description)
+                @Html.DisplayNameFor(model => model.Breeds[0].Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Breed[0].AverageWeight)
+                @Html.DisplayNameFor(model => model.Breeds[0].AverageWeight)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Breed[0].AverageLifeSpan)
+                @Html.DisplayNameFor(model => model.Breeds[0].AverageLifeSpan)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Breed) {
+@foreach (var item in Model.Breeds) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
