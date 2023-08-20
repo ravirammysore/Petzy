@@ -5,42 +5,40 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container">  
-    <h1 class="my-3">Welcome to Petzy!</h1>
-    <p>
-        <a asp-page="Create">Create New</a>
-    </p>
+<h1 class="my-3">Welcome to Petzy!</h1>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
 
-    <table class="table">
-        <thead>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Is Vaccinated</th>
+            <th>Age in months</th>
+            <th>Type</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var pet in Model.Pets)
+        {
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>City</th>
-                <th>Is Vaccinated</th>
-                <th>Age in months</th>
-                <th>Type</th>
-                <th></th>
+                <td>@pet.Id</td>
+                <td>@pet.Name</td>
+                <td>@pet.City</td>
+                <td>@pet.IsVaccinated</td>
+                <td>@pet.AgeInMonths</td>
+                <td>@pet.PetType</td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@pet.Id">Details</a> |
+                    <a asp-page="./Edit" asp-route-id="@pet.Id">Edit</a> |
+                    <a asp-page="./Delete" asp-route-id="@pet.Id">Delete</a>
+                </td>
             </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var pet in Model.Pets)
-            {
-                <tr>
-                    <td>@pet.Id</td>
-                    <td>@pet.Name</td>
-                    <td>@pet.City</td>
-                    <td>@pet.IsVaccinated</td>
-                    <td>@pet.AgeInMonths</td>
-                    <td>@pet.PetType</td>
-                    <td>
-                        <a asp-page="./Details" asp-route-id="@pet.Id">Details</a> |
-                        <a asp-page="./Edit" asp-route-id="@pet.Id">Edit</a> |
-                        <a asp-page="./Delete" asp-route-id="@pet.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+        }
+    </tbody>
+</table>
