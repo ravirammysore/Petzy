@@ -4,7 +4,10 @@
       "commandName": "Project",     
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7000",
-      "launchUrl": "pets"     
+      "launchUrl": "pets",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }   
   }
 }

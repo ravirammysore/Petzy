@@ -26,12 +26,11 @@ namespace WebApp.Pages.Breeds
 
         [BindProperty]
         public Breed Breed { get; set; } = default!;
-        
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Breeds == null || Breed == null)
+            if (!ModelState.IsValid || _context.Breeds == null || Breed == null)
             {
                 return Page();
             }

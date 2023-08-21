@@ -4,6 +4,10 @@ namespace WebApp.Models
 {
     public class Breed
     {
+        public Breed()
+        {
+            Pets = new List<Pet>();
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

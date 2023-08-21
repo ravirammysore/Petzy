@@ -11,6 +11,11 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
 app.UseStaticFiles();
 app.MapRazorPages();
 
