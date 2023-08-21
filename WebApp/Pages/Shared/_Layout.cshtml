@@ -9,6 +9,22 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Pets/Index">Petzy</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link text-dark" asp-page="/Pets/Index">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-dark" asp-page="/Breeds/Index">Breeds</a>
+                    </li>                    
+                    <!-- Add more links as needed -->
+                </ul>
+            </div>
+       </div>
+    </nav>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
