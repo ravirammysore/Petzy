@@ -39,8 +39,8 @@ namespace WebApp.Pages.Pets
             // Create a new list with hardcoded SelectListItem objects
             DropDownItems = new List<SelectListItem>
             {
-                new SelectListItem { Value = "0", Text = "Dog" },
-                new SelectListItem { Value = "1", Text = "Cat" }
+                new SelectListItem { Value = "0", Text = "Male" },
+                new SelectListItem { Value = "1", Text = "Female" }
             };
         }
 

@@ -13,24 +13,24 @@
 
 <dl class="row">
     <dt class="col-sm-2">
-        Name
+        @Html.DisplayNameFor(model => model.Pet.Name)
     </dt>
     <dd class="col-sm-10">
-        @Model.Pet.Name
+        @Html.DisplayFor(model => model.Pet.Name)
     </dd>
 
     <dt class="col-sm-2">
-        City
+        @Html.DisplayNameFor(model => model.Pet.City)
     </dt>
     <dd class="col-sm-10">
-        @Model.Pet.City
+        @Html.DisplayFor(model => model.Pet.City)
     </dd>
 
     <dt class="col-sm-2">
-        IsVaccinated
+        @Html.DisplayNameFor(model => model.Pet.IsVaccinated)
     </dt>
     <dd class="col-sm-10">
-        @Model.Pet.IsVaccinated
+        @Html.DisplayFor(model => model.Pet.IsVaccinated)
     </dd>
 
     <dt class="col-sm-2">
@@ -41,10 +41,10 @@
     </dd>
 
     <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.Pet.PetType)
+        @Html.DisplayNameFor(model => model.Pet.Gender)
     </dt>
     <dd class="col-sm-10">
-        @Model.Pet.PetType
+        @Html.DisplayFor(model => model.Pet.Gender)
     </dd>
 </dl>
 
