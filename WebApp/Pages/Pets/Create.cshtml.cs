@@ -36,9 +36,12 @@ namespace WebApp.Pages.Pets
         [BindProperty]
         public Pet Pet { get; set; }
         public IActionResult OnPost()
-        {            
+        {
+            ModelState.Remove("Pet.Breed");
+
             if (!ModelState.IsValid)
             {                
+                PopulateDropdown();
                 return Page();
             }
 
