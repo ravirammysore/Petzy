@@ -18,7 +18,7 @@ namespace WebApp.Pages.Pets
 
         public IActionResult OnGet(int id)
         {
-            var pet = _context.Pets.FirstOrDefault(m => m.Id == id);
+            var pet = _context.Pets.Include(p=>p.Breed).FirstOrDefault(m => m.Id == id);
 
             if (pet == null)
             {

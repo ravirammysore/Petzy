@@ -41,6 +41,13 @@
     </dd>
 
     <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Pet.Breed.Name)
+    </dt>
+    <dd class="col-sm-10">
+        @(Model.Pet.Breed?.Name ?? "NA")
+    </dd>
+
+    <dt class="col-sm-2">
         @Html.DisplayNameFor(model => model.Pet.Gender)
     </dt>
     <dd class="col-sm-10">
