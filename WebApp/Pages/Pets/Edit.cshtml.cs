@@ -46,10 +46,10 @@ namespace WebApp.Pages.Pets
 
         public IActionResult OnPost()
         {
+            ModelState.Remove("Pet.Breed");
             if (ModelState.IsValid is false)
             {
                 PopulateDropdown();
-
                 return Page();
             }
 

@@ -10,8 +10,8 @@
     <div class="col-md-4">
         <form method="post">
             <div class="form-group">
+                <div asp-validation-summary="All" class="text-danger"></div>
                 <input type="hidden" asp-for="Pet.Id" />
-
                 <label asp-for="Pet.Name"></label>
                 <input asp-for="Pet.Name" class="form-control" />
                 <span asp-validation-for="Pet.Name" class="text-danger"></span>
