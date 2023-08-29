@@ -16,7 +16,7 @@ namespace WebApp.Pages.Pets
         public List<Pet> Pets { get; set; }
         public void OnGet()
         {           
-            Pets = _context.Pets.ToList();
+            Pets = _context.Pets.Include(p=>p.Breed).ToList();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace WebApp.Models
             Pets = new List<Pet>();
         }
         public int Id { get; set; }
+        [Display(Name ="Breed")]
         public string Name { get; set; }
         public string Description { get; set; }
         [Display(Name = "Average Weight (Kilos)")]
