@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
 using WebApp.Models;
 
@@ -16,7 +17,7 @@ namespace WebApp.Pages.Pets
         public Pet Pet { get; set; }
         public IActionResult OnGet(int id)
         {            
-            var pet = _context.Pets.FirstOrDefault(p => p.Id == id);
+            var pet = _context.Pets.Include(p=>p.Breed).FirstOrDefault(p => p.Id == id);
             
             if (pet == null)
             {
