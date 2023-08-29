@@ -33,7 +33,7 @@
                 <td>@Html.DisplayFor(m=>pet.City)</td>
                 <td>@Html.DisplayFor(m=>pet.IsVaccinated)</td>
                 <td>@Html.DisplayFor(m=>pet.AgeInMonths)</td>
-                <th>@(pet.Breed?.Name ?? "NA")</th>
+                <td>@(pet.Breed?.Name ?? "NA")</td>
                 <td>@Html.DisplayFor(m=>pet.Gender)</td>
                 <td>
                     <a asp-page="./Details" asp-route-id="@pet.Id">Details</a> |
