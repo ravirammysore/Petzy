@@ -30,7 +30,7 @@
         @Html.DisplayNameFor(model => model.Pet.IsVaccinated)
     </dt>
     <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.Pet.IsVaccinated)
+        @(Model.Pet.IsVaccinated ? "Yes" : "No")
     </dd>
 
     <dt class="col-sm-2">

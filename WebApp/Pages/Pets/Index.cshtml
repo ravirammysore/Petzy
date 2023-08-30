@@ -31,7 +31,7 @@
                 <td>@Html.DisplayFor(m=>pet.Id)</td>
                 <td>@Html.DisplayFor(m=>pet.Name)</td>
                 <td>@Html.DisplayFor(m=>pet.City)</td>
-                <td>@Html.DisplayFor(m=>pet.IsVaccinated)</td>
+                <td>@(pet.IsVaccinated ? "Yes" : "No")</td>
                 <td>@Html.DisplayFor(m=>pet.AgeInMonths)</td>
                 <td>@(pet.Breed?.Name ?? "NA")</td>
                 <td>@Html.DisplayFor(m=>pet.Gender)</td>
