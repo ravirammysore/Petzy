@@ -1,0 +1,5 @@
+﻿/* Increase spacing between form groups*/
+.form-group {
+    margin-bottom: 10px; /* Adjust this value as needed */
+}
+
