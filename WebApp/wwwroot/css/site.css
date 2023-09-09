@@ -11,4 +11,14 @@
     z-index: 1000; /* Ensures the image stays on top of other elements */
 }
 
+.navbar {
+    background-image: url('../images/background.jpg');
+    background-size: cover; /* This will cover the entire navbar */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-position: center center; /* This will center the image */
+}
+
+body {
+    padding-top: 70px; /* Adjust based on the height of your navbar */
+}
 
